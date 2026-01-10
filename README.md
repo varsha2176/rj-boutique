@@ -263,3 +263,57 @@ This project is created for RJ Boutique. All rights reserved.
 ---
 
 **Built with ❤️ using Next.js, Tailwind CSS, and Framer Motion**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+git remote add origin https://github.com/varsha2176/rj-boutique.git
+git branch -M main
+git push -u origin main

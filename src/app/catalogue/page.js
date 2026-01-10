@@ -1,49 +1,72 @@
-'use client'
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
-import ProductCard from '@/components/ProductCard'
-import { categories } from '@/data/products'
-import { Sparkles, ArrowLeft, Upload, Plus } from 'lucide-react'
+"use client";
+import { Suspense } from 'react';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import ProductCard from '@/components/ProductCard';
+import { categories } from '@/data/products';
+import { Sparkles, ArrowLeft, Upload, Plus } from 'lucide-react';
 
+// Main exported component with Suspense wrapper
 export default function CataloguePage() {
-  const searchParams = useSearchParams()
-  const categoryParam = searchParams.get('category')
+  return (
+    <Suspense fallback={<CatalogueLoader />}>
+      <CatalogueContent />
+    </Suspense>
+  );
+}
 
-  const [selectedMainCategory, setSelectedMainCategory] = useState(categoryParam || null)
-  const [selectedSubCategory, setSelectedSubCategory] = useState(null)
+// Loading fallback component
+function CatalogueLoader() {
+  return (
+    <div className="pt-28 min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-cherryred mx-auto mb-4"></div>
+        <p className="text-charcoal font-playfair text-xl">Loading catalogue...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main catalogue component
+function CatalogueContent() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+
+  const [selectedMainCategory, setSelectedMainCategory] = useState(categoryParam || null);
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
   useEffect(() => {
     if (categoryParam && categoryParam !== selectedMainCategory) {
-      setSelectedMainCategory(categoryParam)
-      setSelectedSubCategory(null)
+      setSelectedMainCategory(categoryParam);
+      setSelectedSubCategory(null);
     }
-  }, [categoryParam])
+  }, [categoryParam, selectedMainCategory]);
 
   const resetToMain = () => {
-    setSelectedMainCategory(null)
-    setSelectedSubCategory(null)
-    window.history.pushState({}, '', '/catalogue')
-  }
+    setSelectedMainCategory(null);
+    setSelectedSubCategory(null);
+    window.history.pushState({}, '', '/catalogue');
+  };
 
   const resetToSub = () => {
-    setSelectedSubCategory(null)
-  }
+    setSelectedSubCategory(null);
+  };
 
   // Custom Design WhatsApp Handler
   const handleCustomDesign = (categoryName) => {
-    const phone = '919500710139'
+    const phone = '919500710139';
     const message = encodeURIComponent(
       `Hi RJ Boutique! 
 
 I want to send my own design for custom stitching.
 
- Category: ${categoryName}
+📌 Category: ${categoryName}
 
 I will share the design image/reference with you. Please provide pricing and timeline.`
-    )
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank')
-  }
+    );
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  };
 
   const mainCategories = [
     {
@@ -64,8 +87,9 @@ I will share the design image/reference with you. Please provide pricing and tim
       image: '/images/hero/hero-3.jpg',
       description: 'Stylish wear for your furry friends',
     },
-  ]
+  ];
 
+  // Main category selection view
   if (!selectedMainCategory) {
     return (
       <div className="pt-28">
@@ -97,8 +121,8 @@ I will share the design image/reference with you. Please provide pricing and tim
                   transition={{ delay: index * 0.15 }}
                   viewport={{ once: true }}
                   onClick={() => {
-                    setSelectedMainCategory(category.key)
-                    window.history.pushState({}, '', `/catalogue?category=${category.key}`)
+                    setSelectedMainCategory(category.key);
+                    window.history.pushState({}, '', `/catalogue?category=${category.key}`);
                   }}
                   className="group relative overflow-hidden cursor-pointer rounded-lg shadow-xl hover:shadow-2xl transition-all"
                 >
@@ -127,11 +151,12 @@ I will share the design image/reference with you. Please provide pricing and tim
           </div>
         </section>
       </div>
-    )
+    );
   }
 
+  // Subcategory selection view
   if (selectedMainCategory && !selectedSubCategory) {
-    const currentCategory = categories[selectedMainCategory]
+    const currentCategory = categories[selectedMainCategory];
 
     return (
       <div className="pt-28">
@@ -182,7 +207,7 @@ I will share the design image/reference with you. Please provide pricing and tim
                   </div>
                   <div className="flex-1">
                     <h3 className="font-playfair text-2xl md:text-3xl font-semibold mb-2 flex items-center justify-center md:justify-start gap-3">
-                      
+                      <Plus size={28} />
                       Send Your Own Design
                     </h3>
                     <p className="text-ivory/90 text-base md:text-lg">
@@ -232,19 +257,20 @@ I will share the design image/reference with you. Please provide pricing and tim
           </div>
         </section>
       </div>
-    )
+    );
   }
 
-  const currentCategory = categories[selectedMainCategory]
+  // Product display view
+  const currentCategory = categories[selectedMainCategory];
   const currentSubCategory = currentCategory.subcategories.find(
     (sub) => sub.id === selectedSubCategory
-  )
+  );
 
   return (
     <div className="pt-28">
       <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-8 flex-wrap">
             <button
               onClick={resetToMain}
               className="text-cherryred hover:text-charcoal transition-colors uppercase text-sm tracking-wide font-medium"
@@ -300,5 +326,5 @@ I will share the design image/reference with you. Please provide pricing and tim
         </div>
       </section>
     </div>
-  )
+  );
 }
