@@ -69,29 +69,20 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="font-playfair text-4xl font-medium mb-6">
-                Crafting Dreams Since 2020
+                Where Tailoring Meets Personal Style
               </h2>
               <div className="space-y-4 text-charcoal/80 leading-relaxed">
                 <p>
-                  RJ Boutique was born from a simple belief: everyone deserves clothing 
-                  that makes them feel special. What started as a small stitching service 
-                  has blossomed into a trusted name for custom designer wear in Bangalore.
+                  RJ Boutique started with one mission: to make custom fashion accessible, comfortable, and meaningful. From a humble stitching setup, we’ve grown into a recognized name for handcrafted designer wear in Bangalore.
                 </p>
                 <p>
-                  Our founder, a passionate designer with years of experience, recognized 
-                  the gap between mass-produced fashion and personalized elegance. RJ Boutique 
-                  bridges that gap by offering custom-stitched designs that reflect your unique 
-                  personality and style.
+                  Our approach is simple—listen, design, and stitch garments that make people feel beautiful and confident. Every outfit is carefully crafted to fit real bodies, real occasions, and real personalities.
                 </p>
                 <p>
-                  From women's ethnic and western wear to adorable kids' outfits and even 
-                  stylish pet clothing, we craft each piece with meticulous attention to 
-                  detail. Our commitment to perfect fitting, quality fabrics, and affordable 
-                  luxury has earned us a loyal customer base across India.
+                  From classic lehengas to elegant western wear, festive kids’ outfits, and even charming pet clothing, our work blends creativity with precision.
                 </p>
                 <p className="text-cherryred font-medium">
-                  At RJ Boutique, we don't just stitch clothes—we create confidence, 
-                  one custom design at a time.
+                  At RJ Boutique, clothing isn’t just stitched—it’s thoughtfully made for you.
                 </p>
               </div>
             </motion.div>
