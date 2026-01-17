@@ -1,22 +1,28 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from 'lucide-react'
 
 export default function ContactPage() {
   return (
     <div className="pt-28">
-      {/* Header */}
-      <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush text-center">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-beige via-ivory to-blush text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
+          className="max-w-4xl mx-auto px-6"
         >
-          <h1 className="luxury-heading mb-6">
+          <div className="flex justify-center mb-6">
+            <Send className="text-cherryred" size={48} />
+          </div>
+          <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4 font-medium">
             Get in Touch
+          </p>
+          <h1 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-6 leading-tight">
+            Ready to Create Your Perfect Outfit?
           </h1>
-          <p className="subtitle max-w-3xl mx-auto">
-            Ready to create your perfect outfit? Reach out to us via WhatsApp, 
-            phone, or visit our boutique in Bangalore.
+          <p className="text-lg md:text-xl text-charcoal/70 leading-relaxed">
+            Reach out to us via WhatsApp, phone, or visit our boutique in Bangalore
           </p>
         </motion.div>
       </section>
@@ -30,7 +36,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-playfair text-3xl font-medium text-charcoal mb-8">
+              <h2 className="font-playfair text-3xl font-semibold text-charcoal mb-8">
                 Contact Information
               </h2>
 
@@ -94,7 +100,7 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-12 bg-gradient-to-br from-cherryred/10 to-blush/20 p-8 rounded-lg border-2 border-cherryred/20">
-                <h3 className="font-playfair text-2xl font-medium text-charcoal mb-4">
+                <h3 className="font-playfair text-2xl font-semibold text-charcoal mb-4">
                   Pan-India Delivery
                 </h3>
                 <p className="text-charcoal/70 leading-relaxed">

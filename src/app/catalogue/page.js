@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { categories } from '@/data/products';
-import { Sparkles, ArrowLeft, Upload, Plus } from 'lucide-react';
+import { Sparkles, ArrowLeft, Upload, Plus, ShoppingBag } from 'lucide-react';
 
 // Main exported component with Suspense wrapper
 export default function CataloguePage() {
@@ -93,18 +93,23 @@ I will share the design image/reference with you. Please provide pricing and tim
   if (!selectedMainCategory) {
     return (
       <div className="pt-28">
-        <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush text-center">
+        {/* Hero Section */}
+        <section className="py-20 bg-gradient-to-br from-beige via-ivory to-blush text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl mx-auto px-6"
           >
-            <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4">
+            <div className="flex justify-center mb-6">
+              <ShoppingBag className="text-cherryred" size={48} />
+            </div>
+            <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4 font-medium">
               Explore Our Collections
             </p>
-            <h1 className="luxury-heading mb-6">
+            <h1 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-6 leading-tight">
               Choose Your Category
             </h1>
-            <p className="subtitle max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-charcoal/70 leading-relaxed">
               Select from our exclusive collections of custom-stitched designer wear
             </p>
           </motion.div>
@@ -160,8 +165,8 @@ I will share the design image/reference with you. Please provide pricing and tim
 
     return (
       <div className="pt-28">
-        <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-20 bg-gradient-to-br from-beige via-ivory to-blush">
+          <div className="max-w-7xl mx-auto px-6 lg:px-16">
             <button
               onClick={resetToMain}
               className="flex items-center gap-2 text-cherryred hover:text-charcoal mb-8 transition-colors"
@@ -175,13 +180,13 @@ I will share the design image/reference with you. Please provide pricing and tim
               animate={{ opacity: 1, y: 0 }}
               className="text-center"
             >
-              <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4">
+              <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4 font-medium">
                 {currentCategory.title}
               </p>
-              <h1 className="luxury-heading mb-6">
+              <h1 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-6 leading-tight">
                 Choose Your Style
               </h1>
-              <p className="subtitle max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-charcoal/70 leading-relaxed max-w-3xl mx-auto">
                 Select a category to browse our curated collection
               </p>
             </motion.div>
@@ -268,8 +273,8 @@ I will share the design image/reference with you. Please provide pricing and tim
 
   return (
     <div className="pt-28">
-      <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 bg-gradient-to-br from-beige via-ivory to-blush">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
           <div className="flex items-center gap-4 mb-8 flex-wrap">
             <button
               onClick={resetToMain}
@@ -294,7 +299,7 @@ I will share the design image/reference with you. Please provide pricing and tim
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="luxury-heading mb-4">
+            <h1 className="font-playfair text-4xl md:text-5xl font-semibold text-charcoal mb-4 leading-tight">
               {currentSubCategory.name}
             </h1>
             <div className="flex items-center gap-2 text-cherryred mb-4">
@@ -303,7 +308,7 @@ I will share the design image/reference with you. Please provide pricing and tim
                 {currentSubCategory.images.length} Inspiration Designs • Custom Pricing Available
               </p>
             </div>
-            <p className="subtitle max-w-3xl">
+            <p className="text-lg text-charcoal/70 leading-relaxed max-w-3xl">
               Have your own design? Share it with us and we'll create it perfectly tailored to your measurements.
             </p>
           </motion.div>

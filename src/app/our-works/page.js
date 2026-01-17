@@ -57,21 +57,24 @@ Please share pricing and customization options.`
 
   return (
     <div className="pt-28">
-      {/* Header */}
-      <section className="section-padding bg-gradient-to-br from-beige via-ivory to-blush text-center">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-beige via-ivory to-blush text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
+          className="max-w-4xl mx-auto px-6"
         >
           <div className="flex justify-center mb-6">
             <Award className="text-cherryred" size={48} />
           </div>
-          <h1 className="luxury-heading mb-6">
+          <p className="text-cherryred uppercase tracking-[0.3em] text-sm mb-4 font-medium">
             Our Craftsmanship
+          </p>
+          <h1 className="font-playfair text-5xl md:text-6xl font-semibold text-charcoal mb-6 leading-tight">
+            Real Dresses, Real Perfection
           </h1>
-          <p className="subtitle max-w-3xl mx-auto">
-            Real dresses, real customers, real perfection. Every piece showcased here 
-            has been custom-stitched by RJ Boutique with precision and care.
+          <p className="text-lg md:text-xl text-charcoal/70 leading-relaxed">
+            Every piece showcased here has been custom-stitched by RJ Boutique with precision and care
           </p>
         </motion.div>
       </section>
@@ -162,7 +165,7 @@ Please share pricing and customization options.`
             {/* Note */}
             <div className="text-center bg-gradient-to-r from-blush/20 via-beige/30 to-blush/20 p-6 md:p-8 rounded-lg border border-cherryred/20">
               <p className="text-charcoal/80 text-sm md:text-base leading-relaxed">
-                 <strong>All designs showcased here are real dresses stitched by RJ Boutique.</strong><br className="hidden sm:block" />
+                <strong>All designs showcased here are real dresses stitched by RJ Boutique.</strong><br className="hidden sm:block" />
                 No stock images—just authentic craftsmanship. Tap any design to get pricing!
               </p>
             </div>

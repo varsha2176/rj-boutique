@@ -21,6 +21,7 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/catalogue', label: 'Catalogue' },
     { href: '/our-works', label: 'Our Works' },
+    { href: '/measurements', label: 'Measurements' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ]
@@ -29,17 +30,16 @@ export default function Navbar() {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
       scrolled ? 'bg-ivory/95 backdrop-blur-md shadow-lg' : 'bg-ivory/90'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-6 lg:px-20">
+        <div className="flex justify-between items-center h-28">
+          {/* Left: Logo and Brand Name */}
+          <Link href="/" className="flex items-center gap-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-4"
             >
-              {/* Logo Image - You can adjust size here */}
-              <div className="relative w-16 h-16">
+              <div className="relative w-20 h-20">
                 <Image
                   src="/images/logo/rj-logo.png"
                   alt="RJ Boutique Logo"
@@ -48,15 +48,14 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              {/* Logo Text */}
-              <div className="font-playfair text-3xl font-semibold text-charcoal tracking-wider">
+              <div className="font-playfair text-2xl font-semibold text-charcoal tracking-wider">
                 RJ Boutique
               </div>
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* Right: Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -68,7 +67,7 @@ export default function Navbar() {
             ))}
             <a
               href="tel:9500710139"
-              className="flex items-center gap-2 px-6 py-3 bg-cherryred text-ivory hover:bg-charcoal hover:text-ivory uppercase text-sm tracking-widest transition-all rounded"
+              className="flex items-center gap-2 px-6 py-3 bg-cherryred text-ivory hover:bg-charcoal hover:text-ivory uppercase text-sm tracking-widest transition-all rounded ml-2"
             >
               <Phone size={16} />
               Call Us

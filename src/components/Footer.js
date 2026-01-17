@@ -1,19 +1,19 @@
 'use client'
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Instagram, Facebook, MessageCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Instagram, MessageCircle } from 'lucide-react'
 
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-ivory pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
+          {/* Brand with Large Logo */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-6">
               <img 
                 src="/images/logo/rj-logo1.png" 
                 alt="RJ Boutique Logo" 
-                className="h-12 w-auto"
+                className="h-32 w-auto"
               />
             </div>
             <p className="text-sm text-ivory/70 leading-relaxed mb-4">
@@ -28,14 +28,6 @@ export default function Footer() {
                 className="text-ivory/70 hover:text-cherryred transition-colors"
               >
                 <Instagram size={20} />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-ivory/70 hover:text-cherryred transition-colors"
-              >
-                <Facebook size={20} />
               </a>
             </div>
           </div>
@@ -57,6 +49,11 @@ export default function Footer() {
               <li>
                 <Link href="/our-works" className="text-sm text-ivory/70 hover:text-cherryred transition-colors">
                   Our Works
+                </Link>
+              </li>
+              <li>
+                <Link href="/measurements" className="text-sm text-ivory/70 hover:text-cherryred transition-colors">
+                  Measurements
                 </Link>
               </li>
               <li>
